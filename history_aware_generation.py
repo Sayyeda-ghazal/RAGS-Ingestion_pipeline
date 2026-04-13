@@ -17,6 +17,7 @@ embeddings= OpenAIEmbeddings(
         openai_api_key=openrouter_api_key,
         openai_api_base="https://openrouter.ai/api/v1",
     )
+db = Chroma(persist_directory=persistent_directory, embedding_function=embeddings)
 
 model = ChatOpenAI(
     model="gpt-4o-mini",
@@ -24,6 +25,7 @@ model = ChatOpenAI(
     openai_api_base="https://openrouter.ai/api/v1",
     max_tokens=256,
 )
+query = "what was micorsoft's first launched product?"
 
 chat_history = []
 
